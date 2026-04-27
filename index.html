@@ -463,8 +463,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 /* Hero — override padding, enable two-column */
 .hero{padding:0!important;align-items:stretch}
 .hero-inner{display:flex;align-items:center;gap:3rem;padding:4rem clamp(1.5rem,5vw,5rem) 3.5rem;width:100%;position:relative;z-index:1;justify-content:center;box-sizing:border-box;min-height:0}
-.hero-content{flex:1;min-width:0;max-width:560px}
-.hero-visual{flex:0 0 320px;display:flex;flex-direction:column;gap:0.85rem}
+.hero-content{flex:1.4 1 0;min-width:0;max-width:none}
+.hero-visual{flex:0 0 380px;min-width:0;display:flex;flex-direction:column;gap:0.85rem;max-width:380px}
 
 /* Hero stat card */
 .hero-stat-card{background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.11);border-radius:16px;padding:1.5rem 1.6rem;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
@@ -845,30 +845,29 @@ h1,h2,h3,h4,h5,h6,
 
 /* ── Hero — clean corporate ── */
 .hero h1 em{
-  color:#fff!important;font-style:normal!important;
-  border-bottom:2px solid var(--accent);
+  color:var(--gold)!important;font-style:normal!important;
   padding-bottom:1px;
 }
 .hero-badge{
   font-size:0.62rem!important;font-weight:600!important;letter-spacing:1.5px!important;
-  color:rgba(255,255,255,0.55)!important;
-  background:rgba(255,255,255,0.06)!important;
-  border:1px solid rgba(255,255,255,0.14)!important;
+  color:rgba(232,164,34,0.75)!important;
+  background:rgba(232,164,34,0.07)!important;
+  border:1px solid rgba(232,164,34,0.22)!important;
 }
-.hero-badge::before{background:rgba(255,255,255,0.5)!important}
+.hero-badge::before{background:var(--gold)!important}
 .hero-sub{color:rgba(255,255,255,0.65)!important;font-size:0.93rem!important;line-height:1.8!important}
 .btn-p{background:var(--accent)!important;border-radius:6px!important}
 .btn-p:hover{background:#1447c0!important;box-shadow:0 6px 18px rgba(26,86,219,0.35)!important}
 .btn-o{border:1px solid rgba(255,255,255,0.28)!important;border-radius:6px!important;color:rgba(255,255,255,0.8)!important}
 .btn-o:hover{border-color:#fff!important;color:#fff!important;background:rgba(255,255,255,0.06)!important}
 .hero-trust-item{color:rgba(255,255,255,0.5)!important;font-size:0.78rem!important}
-.ht-check{color:#4ade80!important}
+.ht-check{color:var(--gold)!important}
 /* Stat card */
 .hero-stat-card{background:rgba(255,255,255,0.07)!important;border-color:rgba(255,255,255,0.12)!important}
-.hsc-val{font-weight:800!important;color:#fff!important}
-.hsc-footer-num{color:#fff!important;font-weight:800!important}
+.hsc-val{font-weight:800!important;color:var(--gold)!important}
+.hsc-footer-num{color:var(--gold)!important;font-weight:800!important}
 .hsc-footer-label{color:rgba(255,255,255,0.4)!important}
-.hsc-pulse{background:var(--accent)!important}
+.hsc-pulse{background:var(--gold)!important}
 .hero-cert{color:rgba(255,255,255,0.45)!important;background:rgba(255,255,255,0.05)!important;border-color:rgba(255,255,255,0.1)!important}
 
 /* ── Nav ── */
@@ -989,10 +988,187 @@ h1,h2,h3,h4,h5,h6,
   .btn-p,.btn-o{border-radius:6px!important}
 }
 
+/* ══════════════════════════════════════════════════════════
+   CONTACT SECTION — GLASSMORPHISM
+   ══════════════════════════════════════════════════════════ */
+.contact-section{
+  background:linear-gradient(145deg,#05101f 0%,#0b1d3a 40%,#071120 65%,#0a1b38 100%)!important;
+  position:relative!important;overflow:hidden!important;
+}
+.contact-section::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 52% 62% at  5% 15%, rgba(26,86,219,0.22)  0%,transparent 62%),
+    radial-gradient(ellipse 40% 50% at 92% 80%, rgba(16,185,129,0.13) 0%,transparent 58%),
+    radial-gradient(ellipse 34% 44% at 55%  4%, rgba(129,140,248,0.11)0%,transparent 55%),
+    radial-gradient(ellipse 28% 38% at 18% 92%, rgba(34,211,238,0.08) 0%,transparent 50%);
+}
+.contact-section::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.035) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.contact-section .container{position:relative;z-index:1}
+
+/* ── Contact info cards → glass ── */
+.contact-section .ci-item{
+  background:rgba(255,255,255,0.07)!important;
+  backdrop-filter:blur(18px) saturate(150%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(150%)!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+  border-radius:14px!important;
+  box-shadow:0 2px 16px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.1)!important;
+  transition:transform 0.22s ease,background 0.22s ease!important;
+}
+.contact-section .ci-item:hover{
+  background:rgba(255,255,255,0.12)!important;
+  transform:translateY(-2px)!important;
+  border-color:rgba(255,255,255,0.2)!important;
+}
+.contact-section .ci-icon{
+  background:rgba(26,86,219,0.25)!important;
+  border:1px solid rgba(26,86,219,0.35)!important;
+  font-size:1rem!important;
+}
+.contact-section .ci-label{color:rgba(255,255,255,0.38)!important;letter-spacing:1.5px!important}
+.contact-section .ci-val{color:rgba(255,255,255,0.88)!important;font-size:0.92rem!important;font-weight:500!important}
+.contact-section .ci-val a{color:rgba(100,160,255,0.9)!important}
+
+/* ── Contact form → glass ── */
+.contact-section .cf{
+  background:rgba(255,255,255,0.07)!important;
+  backdrop-filter:blur(22px) saturate(155%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(155%)!important;
+  border:1px solid rgba(255,255,255,0.13)!important;
+  border-radius:20px!important;
+  padding:2.25rem!important;
+  box-shadow:0 4px 28px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12)!important;
+}
+.contact-section .cf h3{
+  color:#fff!important;font-size:1.3rem!important;
+  font-weight:800!important;margin-bottom:1.6rem!important;
+  letter-spacing:-0.2px!important;
+}
+
+/* ── Form labels → white ── */
+.contact-section .fg label{color:rgba(255,255,255,0.72)!important;font-size:0.82rem!important;font-weight:600!important;margin-bottom:0.35rem!important}
+
+/* ── Inputs → glass style ── */
+.contact-section .fg input,
+.contact-section .fg select,
+.contact-section .fg textarea{
+  background:rgba(255,255,255,0.08)!important;
+  border:1px solid rgba(255,255,255,0.15)!important;
+  border-radius:10px!important;
+  color:rgba(255,255,255,0.9)!important;
+  font-size:0.9rem!important;
+  padding:0.82rem 1rem!important;
+  transition:border-color 0.2s,background 0.2s,box-shadow 0.2s!important;
+}
+.contact-section .fg input::placeholder,
+.contact-section .fg textarea::placeholder{color:rgba(255,255,255,0.28)!important}
+.contact-section .fg select option{background:#0b1d3a;color:#fff}
+.contact-section .fg input:focus,
+.contact-section .fg select:focus,
+.contact-section .fg textarea:focus{
+  background:rgba(255,255,255,0.12)!important;
+  border-color:rgba(26,86,219,0.7)!important;
+  box-shadow:0 0 0 3px rgba(26,86,219,0.18)!important;
+  outline:none!important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ABOUT SECTION — GLASSMORPHISM
+   ══════════════════════════════════════════════════════════ */
+.about-section{
+  background:linear-gradient(145deg,#05101f 0%,#0b1d3a 40%,#071120 65%,#0a1b38 100%)!important;
+  position:relative!important;overflow:hidden!important;
+}
+.about-section::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 55% 65% at  6% 18%, rgba(26,86,219,0.20)  0%,transparent 62%),
+    radial-gradient(ellipse 42% 52% at 92% 78%, rgba(16,185,129,0.13) 0%,transparent 58%),
+    radial-gradient(ellipse 36% 46% at 55%  3%, rgba(129,140,248,0.11)0%,transparent 55%),
+    radial-gradient(ellipse 30% 40% at 20% 92%, rgba(34,211,238,0.09) 0%,transparent 50%),
+    radial-gradient(ellipse 28% 36% at 78% 22%, rgba(245,158,11,0.07) 0%,transparent 46%);
+}
+.about-section::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.035) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.about-section .container{position:relative;z-index:1}
+
+/* ── Text colours ── */
+.about-section .eyebrow{color:rgba(255,255,255,0.45)!important}
+.about-section .eyebrow::before{background:rgba(255,255,255,0.3)!important}
+.about-section .sec-h{color:#fff!important}
+.about-section .sec-d{color:rgba(255,255,255,0.55)!important}
+.about-section p{color:rgba(255,255,255,0.58)!important;line-height:1.82!important}
+
+/* ── Stats card → frosted glass ── */
+.about-section .about-card{
+  background:rgba(255,255,255,0.07)!important;
+  backdrop-filter:blur(22px) saturate(155%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(155%)!important;
+  border:1px solid rgba(255,255,255,0.13)!important;
+  border-radius:20px!important;
+  padding:2.5rem!important;
+  box-shadow:0 4px 28px rgba(0,0,0,0.3),0 1px 6px rgba(0,0,0,0.18),inset 0 1px 0 rgba(255,255,255,0.12)!important;
+}
+.about-section .about-stat-item{border-bottom:1px solid rgba(255,255,255,0.08)!important;padding-bottom:1.25rem!important;margin-bottom:0.1rem!important}
+.about-section .about-stat-item:last-child{border:none!important;padding-bottom:0!important}
+.about-section .asn{
+  color:#fff!important;font-weight:800!important;
+  font-size:clamp(2.1rem,3vw,2.8rem)!important;
+  line-height:1.05!important;margin-bottom:0.3rem!important;
+}
+.about-section .asl{color:rgba(255,255,255,0.48)!important;font-size:0.83rem!important;line-height:1.5!important;margin-top:0!important}
+
+/* ── Values (av) cards → glass ── */
+.about-section .av{
+  background:rgba(255,255,255,0.07)!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+  border:1px solid rgba(255,255,255,0.11)!important;
+  border-radius:14px!important;padding:1.2rem!important;
+  box-shadow:0 2px 14px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.1)!important;
+  transition:transform 0.22s ease,background 0.22s ease!important;
+}
+.about-section .av:hover{background:rgba(255,255,255,0.12)!important;transform:translateY(-2px)!important}
+.about-section .av-icon{font-size:1.2rem!important;margin-bottom:0.45rem!important}
+.about-section .av-title{color:rgba(255,255,255,0.92)!important;font-size:0.9rem!important;font-weight:700!important;margin-bottom:0.28rem!important}
+.about-section .av-desc{color:rgba(255,255,255,0.48)!important;font-size:0.79rem!important;line-height:1.65!important}
+
+/* ── Team cards → glass ── */
+.about-section .team-card{
+  background:rgba(255,255,255,0.07)!important;
+  backdrop-filter:blur(20px) saturate(150%)!important;-webkit-backdrop-filter:blur(20px) saturate(150%)!important;
+  border:1px solid rgba(255,255,255,0.12)!important;
+  border-radius:18px!important;
+  box-shadow:0 4px 22px rgba(0,0,0,0.26),inset 0 1px 0 rgba(255,255,255,0.1)!important;
+  transition:transform 0.28s ease,box-shadow 0.28s ease,background 0.28s ease!important;
+}
+.about-section .team-card:hover{
+  background:rgba(255,255,255,0.13)!important;border-color:rgba(255,255,255,0.22)!important;
+  transform:translateY(-6px)!important;
+  box-shadow:0 22px 52px rgba(0,0,0,0.38),inset 0 1px 0 rgba(255,255,255,0.15)!important;
+}
+.about-section .t-avatar{border:2px solid rgba(255,255,255,0.15)!important;box-shadow:0 4px 16px rgba(0,0,0,0.35)!important}
+.about-section .t-name{color:rgba(255,255,255,0.93)!important}
+.about-section .t-role{color:rgba(255,255,255,0.48)!important}
+.about-section .t-email{color:rgba(100,160,255,0.85)!important}
+
+/* ── Leadership heading ── */
+.about-section h2.sec-h,.about-section [style*="margin-bottom:0.5rem"]{color:#fff!important}
+
+/* ── Tab filter hidden state — must beat all display:flex!important rules ── */
+.card-hidden{display:none!important}
+
 /* ══ SECTION TABS ══ */
 .sec-tabs{display:flex;border-bottom:2px solid #e5e7eb;margin-bottom:2rem;overflow-x:auto;scrollbar-width:none;gap:0;flex-shrink:0}
 .sec-tabs::-webkit-scrollbar{display:none}
-.sec-tab{background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.72rem 1.25rem;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:600;color:#6b7280;cursor:pointer;white-space:nowrap;transition:color 0.18s,border-color 0.18s;letter-spacing:0}
+.sec-tab{background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.72rem 1.25rem;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:600;color:#6b7280;cursor:pointer;white-space:nowrap;transition:color 0.18s,border-color 0.18s,background 0.18s;letter-spacing:0}
 .sec-tab:hover{color:#0f172a}
 .sec-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 /* Dark section variant */
@@ -1000,6 +1176,48 @@ h1,h2,h3,h4,h5,h6,
 .sec-tabs.dark .sec-tab{color:rgba(255,255,255,0.42)}
 .sec-tabs.dark .sec-tab:hover{color:rgba(255,255,255,0.82)}
 .sec-tabs.dark .sec-tab.active{color:#fff;border-bottom-color:#fff}
+/* ── Responsive tabs: wrap into pills below 700px ── */
+@media(max-width:700px){
+  .sec-tabs{
+    flex-wrap:wrap;
+    border-bottom:none!important;
+    gap:0.45rem!important;
+    margin-bottom:1.6rem!important;
+    overflow-x:visible;
+  }
+  .sec-tab{
+    white-space:nowrap;
+    border:1px solid rgba(100,116,139,0.22)!important;
+    border-bottom:1px solid rgba(100,116,139,0.22)!important;
+    border-radius:999px!important;
+    padding:0.42rem 1rem!important;
+    font-size:0.76rem!important;
+    margin-bottom:0!important;
+    background:rgba(100,116,139,0.07)!important;
+    color:#4b5563!important;
+  }
+  .sec-tab:hover{background:rgba(100,116,139,0.14)!important;color:#1e293b!important}
+  .sec-tab.active{
+    background:var(--accent)!important;
+    border-color:var(--accent)!important;
+    color:#fff!important;
+  }
+  /* Dark section pill variant */
+  .sec-tabs.dark .sec-tab{
+    border-color:rgba(255,255,255,0.14)!important;
+    background:rgba(255,255,255,0.06)!important;
+    color:rgba(255,255,255,0.52)!important;
+  }
+  .sec-tabs.dark .sec-tab:hover{
+    background:rgba(255,255,255,0.12)!important;
+    color:rgba(255,255,255,0.9)!important;
+  }
+  .sec-tabs.dark .sec-tab.active{
+    background:#fff!important;
+    border-color:#fff!important;
+    color:#0b1d3a!important;
+  }
+}
 /* Client chip grid */
 .clients-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:0.85rem;margin-bottom:2rem}
 .client-chip{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1.1rem 0.85rem;text-align:center;transition:all 0.22s;cursor:default}
@@ -1285,10 +1503,13 @@ body{font-size:16px!important}
 .cg-type{font-size:0.74rem!important;color:#6b7280!important;line-height:1.5!important}
 
 /* ── FOOTER ── */
-.fc h4{font-size:0.66rem!important;letter-spacing:1.8px!important}
-.fc a{font-size:0.85rem!important}
-.ft-tag{font-size:0.85rem!important;line-height:1.78!important}
-.fb{font-size:0.78rem!important}
+.fc h4{font-size:0.66rem!important;letter-spacing:1.8px!important;color:rgba(255,255,255,0.65)!important}
+.fc a{font-size:0.85rem!important;color:rgba(255,255,255,0.75)!important}
+.fc a:hover{color:#fff!important}
+.ft-tag{font-size:0.85rem!important;line-height:1.78!important;color:rgba(255,255,255,0.72)!important}
+.fb{font-size:0.78rem!important;color:rgba(255,255,255,0.58)!important}
+.fb a{color:rgba(255,255,255,0.75)!important}
+.fb a:hover{color:#fff!important}
 
 /* ── BACK BTN ── */
 .back-btn{font-size:0.9rem!important}
@@ -1622,6 +1843,17 @@ body{font-size:16px!important}
   grid-template-columns:repeat(3,1fr)!important;
   gap:1.35rem!important;
 }
+
+/* ── Hide broken img, show only emoji flag ── */
+.partners-section .partner-logo-box img{display:none!important}
+.partners-section .partner-logo-box{
+  font-size:1.55rem!important;
+  background:rgba(255,255,255,0.1)!important;
+  border:1px solid rgba(255,255,255,0.18)!important;
+  width:52px!important;height:40px!important;
+  border-radius:10px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+}
 @media(max-width:900px){
   .partners-section .partners-grid{grid-template-columns:repeat(2,1fr)!important}
 }
@@ -1631,6 +1863,137 @@ body{font-size:16px!important}
 
 /* ── "View All Partners" btn stays visible ── */
 .partners-section .btn-p{margin-top:0.5rem}
+
+/* ══════════════════════════════════════════════════════════
+   WHY SECTION — GLASSMORPHISM + PER-CARD ACCENT COLOURS
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Section: dark navy with coloured blobs ── */
+.why-section{
+  background:linear-gradient(145deg,#05101f 0%,#0b1d3a 40%,#071120 65%,#0a1b38 100%)!important;
+  position:relative!important;overflow:hidden!important;
+}
+.why-section::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 48% 58% at  8% 18%, rgba(26,86,219,0.22)  0%,transparent 62%),
+    radial-gradient(ellipse 40% 50% at 90% 80%, rgba(16,185,129,0.15) 0%,transparent 58%),
+    radial-gradient(ellipse 34% 44% at 52%  4%, rgba(245,158,11,0.11) 0%,transparent 52%),
+    radial-gradient(ellipse 30% 38% at 20% 90%, rgba(129,140,248,0.10)0%,transparent 48%),
+    radial-gradient(ellipse 26% 34% at 78% 20%, rgba(34,211,238,0.09) 0%,transparent 46%),
+    radial-gradient(ellipse 22% 30% at 60% 95%, rgba(52,211,153,0.08) 0%,transparent 44%);
+}
+.why-section::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.035) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.why-section .container{position:relative;z-index:1}
+
+/* ── Per-card accent colours via :nth-child ── */
+.why-grid .why-card:nth-child(1){--wc:#1a56db}
+.why-grid .why-card:nth-child(2){--wc:#10b981}
+.why-grid .why-card:nth-child(3){--wc:#f59e0b}
+.why-grid .why-card:nth-child(4){--wc:#818cf8}
+.why-grid .why-card:nth-child(5){--wc:#22d3ee}
+.why-grid .why-card:nth-child(6){--wc:#34d399}
+
+/* ── Glass card shell ── */
+.why-card{
+  background:rgba(255,255,255,0.07)!important;
+  backdrop-filter:blur(22px) saturate(155%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(155%)!important;
+  border:1px solid rgba(255,255,255,0.13)!important;
+  border-radius:18px!important;
+  padding:1.75rem!important;
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.28),
+    0 1px 6px rgba(0,0,0,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.12)!important;
+  overflow:hidden!important;
+  position:relative!important;
+  display:flex!important;flex-direction:column!important;
+  transition:transform 0.28s ease,box-shadow 0.28s ease,background 0.28s ease,border-color 0.28s ease!important;
+}
+/* Thin coloured top bar per card */
+.why-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--wc,#1a56db);border-radius:18px 18px 0 0;
+  pointer-events:none;
+}
+.why-card::after{display:none!important}
+
+.why-card:hover{
+  background:rgba(255,255,255,0.12)!important;
+  border-color:rgba(255,255,255,0.24)!important;
+  transform:translateY(-6px)!important;
+  box-shadow:
+    0 26px 56px rgba(0,0,0,0.38),
+    0 6px 16px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.18)!important;
+}
+
+/* ── Number icon box ── */
+.why-icon{
+  width:44px!important;height:44px!important;
+  border-radius:12px!important;
+  background:var(--wc,#1a56db)!important;
+  border:none!important;
+  box-shadow:0 6px 18px rgba(0,0,0,0.3)!important;
+  margin-bottom:1.1rem!important;
+  flex-shrink:0!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.why-icon--n{
+  font-size:0.82rem!important;font-weight:800!important;
+  color:#fff!important;letter-spacing:0!important;
+  font-family:'Inter',sans-serif!important;
+}
+
+/* ── Typography ── */
+.why-title{
+  font-size:1rem!important;font-weight:700!important;
+  color:rgba(255,255,255,0.95)!important;
+  margin-bottom:0.55rem!important;line-height:1.3!important;
+}
+.why-desc{
+  font-size:0.875rem!important;
+  color:rgba(255,255,255,0.52)!important;
+  line-height:1.76!important;
+}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .why-grid{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:540px){
+  .why-grid{grid-template-columns:1fr!important}
+}
+
+/* ══ TAB FILTER — absolute final override (highest specificity + last cascade position) ══ */
+.partner-card.card-hidden,
+.ind-card.card-hidden,
+.cg-card.card-hidden,
+.client-chip.card-hidden,
+.why-card.card-hidden,
+.about-card.card-hidden,
+.team-card.card-hidden,
+.partners-section .card-hidden,
+.ind-section .card-hidden,
+.why-section .card-hidden,
+.about-section .card-hidden,
+.contact-section .card-hidden,
+.clients-section .card-hidden,
+.sec-dark .card-hidden,
+.partners-grid > .card-hidden,
+.ind-grid > .card-hidden,
+.why-grid > .card-hidden,
+.cg-grid > .card-hidden,
+[id] > .card-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 </style>
 </head>
 <body>
@@ -1883,7 +2246,7 @@ body{font-size:16px!important}
   </section>
 
   <!-- WHY US -->
-  <section class="section sec-dark">
+  <section class="section sec-dark why-section">
     <div class="container">
       <div class="sec-head"><div class="eyebrow">Why Choose Techora</div><h2 class="sec-h w">Built for Kenya's Critical Infrastructure</h2><p class="sec-d w">We
  go beyond supply — we partner with clients to deliver certified 
@@ -1920,7 +2283,7 @@ Africa.</p></div><div class="fc"><h4>Industries</h4><ul><li><a onclick="goInd('e
 <!-- ═══ ABOUT ═══ -->
 <div class="page" id="page-about">
   <div class="page-hero"><div class="ph-inner"><div class="ph-eyebrow">About Techora Solutions</div><div class="ph-title">East Africa's Premier Industrial Supply Partner</div><p class="ph-desc">Over a decade of trusted partnerships delivering certified equipment to Kenya's most critical sectors.</p></div></div>
-  <section class="section"><div class="container"><div class="about-grid"><div><div class="eyebrow">Our Story</div><h2 class="sec-h" style="margin-bottom:1rem">Who We Are</h2><p style="font-size:0.93rem;color:var(--muted);line-height:1.8;margin-bottom:1rem">Techora
+  <section class="section about-section"><div class="container"><div class="about-grid"><div><div class="eyebrow">Our Story</div><h2 class="sec-h" style="margin-bottom:1rem">Who We Are</h2><p style="font-size:0.93rem;color:var(--muted);line-height:1.8;margin-bottom:1rem">Techora
  Solutions Ltd is a leading supplier and key distributor of high-quality
  equipment, spare parts, laboratory instruments, and industrial 
 machinery serving Kenya's energy sector and beyond.</p><p style="font-size:0.93rem;color:var(--muted);line-height:1.8;margin-bottom:1rem">We
@@ -1937,15 +2300,55 @@ rail, laboratory, healthcare, telecoms, and industrial machinery.</p><p style="f
 <!-- ═══ PRODUCTS LANDING ═══ -->
 <div class="page" id="page-products">
   <div class="page-hero"><div class="ph-inner"><div class="ph-eyebrow">Products &amp; Services</div><div class="ph-title">Select an Industry to Explore</div><p class="ph-desc">Click any industry below to browse our full product catalogue — with specifications, images, and downloadable brochures.</p></div></div>
-  <section class="section"><div class="container"><div class="ind-grid">
-    <div class="ind-card" onclick="goInd('energy')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#e5f2ff">⚡</div><div><div class="ic-name">Renewable Energy</div><div class="ic-sub">Power Generation &amp; Distribution</div></div></div><div class="ic-body"><ul class="ic-list"><li>Transformers &amp; switchgear</li><li>Solar panels &amp; inverters</li><li>Cables, conductors &amp; meters</li></ul></div><div class="ic-foot"><span class="ic-badge">6 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('oil_gas')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#fff3e0">🛢️</div><div><div class="ic-name">Oil &amp; Gas</div><div class="ic-sub">Upstream, Midstream &amp; Downstream</div></div></div><div class="ic-body"><ul class="ic-list"><li>Wellhead &amp; completion equipment</li><li>Pipeline &amp; flow control</li><li>Process instrumentation &amp; safety</li></ul></div><div class="ic-foot"><span class="ic-badge">4 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('mining')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#fff0e0">⛏️</div><div><div class="ic-name">Mining</div><div class="ic-sub">Exploration, Extraction &amp; Processing</div></div></div><div class="ic-body"><ul class="ic-list"><li>Drilling equipment &amp; drill bits</li><li>Blasting &amp; rock breaking tools</li><li>Mineral processing &amp; mine safety</li></ul></div><div class="ic-foot"><span class="ic-badge">4 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('aviation_marine')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#edf2ff">✈️⚓</div><div><div class="ic-name">Aviation, Marine &amp; Rail</div><div class="ic-sub">Transport Infrastructure</div></div></div><div class="ic-body"><ul class="ic-list"><li>Flight instruments &amp; avionics</li><li>Marine navigation &amp; engine parts</li><li>Rail track, signalling &amp; traction</li></ul></div><div class="ic-foot"><span class="ic-badge">6 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('lab_medical')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#f2eeff">🔬🏥</div><div><div class="ic-name">Laboratory &amp; Medicare</div><div class="ic-sub">Scientific &amp; Healthcare Equipment</div></div></div><div class="ic-body"><ul class="ic-list"><li>Analytical &amp; oil analyzers</li><li>Diagnostic &amp; ICU equipment</li><li>Medical consumables &amp; PPE</li></ul></div><div class="ic-foot"><span class="ic-badge">6 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('telecom')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#fff3e0">📡</div><div><div class="ic-name">Telecoms &amp; IT</div><div class="ic-sub">Network &amp; Communications</div></div></div><div class="ic-body"><ul class="ic-list"><li>Fibre optic &amp; RF systems</li><li>Network infrastructure</li><li>Security &amp; surveillance</li></ul></div><div class="ic-foot"><span class="ic-badge">4 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('industrial')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#e8f0e8">🏭</div><div><div class="ic-name">Industrial Machinery</div><div class="ic-sub">Heavy Equipment &amp; Tools</div></div></div><div class="ic-body"><ul class="ic-list"><li>Compressors &amp; hydraulics</li><li>Precision measuring instruments</li><li>Chrome vanadium hand tools</li></ul></div><div class="ic-foot"><span class="ic-badge">3 categories</span><div class="ic-arr">→</div></div></div>
-    <div class="ind-card" onclick="goInd('chemicals')" style="cursor:pointer"><div class="ic-top"><div class="ic-icon" style="background:#e8fff4">🧪</div><div><div class="ic-name">Industrial Chemicals</div><div class="ic-sub">Process, Specialty &amp; Safety Chemicals</div></div></div><div class="ic-body"><ul class="ic-list"><li>Process &amp; treatment chemicals</li><li>Lubricants &amp; greases</li><li>Cleaning &amp; maintenance chemicals</li><li>Lab reagents &amp; solvents</li></ul></div><div class="ic-foot"><span class="ic-badge">4 categories</span><div class="ic-arr">→</div></div></div>
+  <section class="section ind-section"><div class="container"><div class="ind-grid">
+    <div class="ind-card" onclick="goInd('energy')" style="--ic:#0e90ff">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">⚡</div><div><div class="ic-name">Renewable Energy</div><div class="ic-sub">Power Generation &amp; Distribution</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Transformers &amp; switchgear</li><li>Solar panels &amp; inverters</li><li>Cables, conductors &amp; meters</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Energy</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('oil_gas')" style="--ic:#f59e0b">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">🛢️</div><div><div class="ic-name">Oil &amp; Gas</div><div class="ic-sub">Upstream, Midstream &amp; Downstream</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Wellhead &amp; completion equipment</li><li>Pipeline &amp; flow control</li><li>Process instrumentation &amp; safety</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Oil &amp; Gas</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('mining')" style="--ic:#f87171">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">⛏️</div><div><div class="ic-name">Mining</div><div class="ic-sub">Exploration, Extraction &amp; Processing</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Drilling equipment &amp; drill bits</li><li>Blasting &amp; rock breaking tools</li><li>Mineral processing &amp; mine safety</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Mining</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('aviation_marine')" style="--ic:#818cf8">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">✈️⚓</div><div><div class="ic-name">Aviation, Marine &amp; Rail</div><div class="ic-sub">Transport Infrastructure</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Flight instruments &amp; avionics</li><li>Marine navigation &amp; engine parts</li><li>Rail track, signalling &amp; traction</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Transport</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('lab_medical')" style="--ic:#10b981">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">🔬🏥</div><div><div class="ic-name">Laboratory &amp; Medicare</div><div class="ic-sub">Scientific &amp; Healthcare Equipment</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Analytical &amp; oil analyzers</li><li>Diagnostic &amp; ICU equipment</li><li>Medical consumables &amp; PPE</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Lab / Medical</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('telecom')" style="--ic:#22d3ee">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">📡</div><div><div class="ic-name">Telecoms &amp; IT</div><div class="ic-sub">Network &amp; Communications</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Fibre optic &amp; RF systems</li><li>Network infrastructure</li><li>Security &amp; surveillance</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Telecoms / IT</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('industrial')" style="--ic:#a78bfa">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">🏭</div><div><div class="ic-name">Industrial Machinery</div><div class="ic-sub">Heavy Equipment &amp; Tools</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Compressors &amp; hydraulics</li><li>Precision measuring instruments</li><li>Chrome vanadium hand tools</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Industrial</span><div class="ic-arr">→</div></div>
+    </div>
+    <div class="ind-card" onclick="goInd('chemicals')" style="--ic:#34d399">
+      <div class="ic-photo-wrap"><div class="ic-photo-overlay"></div></div>
+      <div class="ic-top"><div class="ic-icon">🧪</div><div><div class="ic-name">Industrial Chemicals</div><div class="ic-sub">Process, Specialty &amp; Safety Chemicals</div></div></div>
+      <div class="ic-body"><ul class="ic-list"><li>Process &amp; treatment chemicals</li><li>Lubricants &amp; greases</li><li>Cleaning &amp; maintenance chemicals</li><li>Lab reagents &amp; solvents</li></ul></div>
+      <div class="ic-foot"><span class="ic-badge">Chemicals</span><div class="ic-arr">→</div></div>
+    </div>
   </div></div></section>
   <footer><div class="container"><div class="fb"><span>© 2025 Techora Solutions Ltd.</span><a onclick="go('home')">← Back to Home</a></div></div></footer>
 </div>
@@ -2087,11 +2490,9 @@ rail, laboratory, healthcare, telecoms, and industrial machinery.</p><p style="f
 <!-- ═══ PARTNERS ═══ -->
 <div class="page" id="page-partners">
   <div class="page-hero"><div class="ph-inner"><div class="ph-eyebrow">Global Manufacturer Relationships</div><div class="ph-title">Our Partners</div><p class="ph-desc">We source exclusively from world-leading, ISO-certified manufacturers — giving you confidence in every product we supply.</p></div></div>
-  <section class="section"><div class="container">
-    <div class="sec-head"><div class="eyebrow">Manufacturing Partners</div><h2 class="sec-h">Globally Sourced. Locally Delivered.</h2><p class="sec-d">Every
- manufacturer in our network is ISO-certified. We carry full 
-manufacturer authorization for tendering in Kenya and East Africa.</p></div>
-    <div class="partners-grid">
+  <section class="section partners-section"><div class="container">
+    <div class="sec-head"><div class="eyebrow">Manufacturing Partners</div><h2 class="sec-h">Globally Sourced. Locally Delivered.</h2><p class="sec-d">Every manufacturer in our network is ISO-certified. We carry full manufacturer authorization for tendering in Kenya and East Africa.</p></div>
+    <div class="partners-grid" id="pg-full">
       <div class="partner-card"><div class="partner-top"><div class="partner-logo-box"><img src="Techora%20Solutions%20Ltd%20%E2%80%94%20Energy,%20Industrial%20&amp;%20Aviation%20Solutions%201_files/guidelinegeo.com" alt="ABEM" onerror="this.innerHTML='🇸🇪'">🇸🇪</div><div><div class="partner-name">ABEM / Guideline Geo AB</div><div class="partner-country">🇸🇪 Sollentuna, Sweden</div></div></div><p class="partner-desc">World
  leader in geophysical solutions including ERT systems. The Terrameter 
 LS 2 is the gold standard for groundwater, mineral exploration, and 
@@ -2112,10 +2513,10 @@ calipers, and gauges trusted by machinists worldwide.</p><div class="partner-tag
       <div class="partner-card"><div class="partner-top"><div class="partner-logo-box"><img src="Techora%20Solutions%20Ltd%20%E2%80%94%20Energy,%20Industrial%20&amp;%20Aviation%20Solutions%201_files/horiba.com" alt="HORIBA" onerror="this.innerHTML='🇯🇵'">🇯🇵</div><div><div class="partner-name">HORIBA Scientific</div><div class="partner-country">🇯🇵 Kyoto, Japan</div></div></div><p class="partner-desc">200+ years of high-performance scientific instruments for environmental, industrial, and medical applications worldwide.</p><div class="partner-tags"><span class="p-tag">Scientific Instruments</span><span class="p-tag">Oil Analysis</span></div></div>
       <div class="partner-card"><div class="partner-top"><div class="partner-logo-box"><img src="Techora%20Solutions%20Ltd%20%E2%80%94%20Energy,%20Industrial%20&amp;%20Aviation%20Solutions%201_files/stahlwille" alt="Stahlwille" onerror="this.innerHTML='🇩🇪'">🇩🇪</div><div><div class="partner-name">Stahlwille Eduard Wille</div><div class="partner-country">🇩🇪 Solingen, Germany</div></div></div><p class="partner-desc">Premium torque tools, socket sets, and hand tools used in aerospace, automotive, and heavy industry globally.</p><div class="partner-tags"><span class="p-tag">Torque Tools</span><span class="p-tag">Socket Sets</span></div></div>
     </div>
-    <div style="margin-top:3.5rem;background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:2.8rem;text-align:center">
-      <div class="eyebrow" style="text-align:center">Partner With Us</div>
-      <h3 style="font-family:'Syne',sans-serif;font-size:1.5rem;color:var(--navy);margin-bottom:0.7rem">Become an Authorized Supplier</h3>
-      <p style="color:var(--muted);font-size:0.88rem;max-width:500px;margin:0 auto 1.8rem;line-height:1.7">If you are a manufacturer or distributor seeking an East African distribution partner, we'd love to hear from you.</p>
+    <div style="margin-top:3.5rem;background:rgba(255,255,255,0.07);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.14);border-radius:18px;padding:3rem 2.5rem;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.1)">
+      <div class="eyebrow" style="justify-content:center">Partner With Us</div>
+      <h3 style="font-family:'Inter',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:0.75rem;margin-top:0.1rem;letter-spacing:-0.25px">Become an Authorized Supplier</h3>
+      <p style="color:rgba(255,255,255,0.52);font-size:0.95rem;max-width:500px;margin:0 auto 2rem;line-height:1.78">If you are a manufacturer or distributor seeking an East African distribution partner, we'd love to hear from you.</p>
       <button class="btn-p" onclick="go('contact')">Enquire About Partnership</button>
     </div>
   </div></section>
@@ -2125,7 +2526,7 @@ calipers, and gauges trusted by machinists worldwide.</p><div class="partner-tag
 <!-- ═══ CONTACT ═══ -->
 <div class="page" id="page-contact">
   <div class="page-hero"><div class="ph-inner"><div class="ph-eyebrow">Get In Touch</div><div class="ph-title">Contact Us</div><p class="ph-desc">Whether you need a quote, want to discuss a procurement, or are exploring a supply partnership — our team is ready to help.</p></div></div>
-  <section class="section"><div class="container"><div class="contact-wrap">
+  <section class="section contact-section"><div class="container"><div class="contact-wrap">
     <div class="ci">
       <div class="ci-item"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val">+254 722 877 905</div></div></div>
       <div class="ci-item"><div class="ci-icon">📧</div><div><div class="ci-label">General Enquiries</div><div class="ci-val"><a href="mailto:info@techorasolutions.co.ke">info@techorasolutions.co.ke</a></div></div></div>
@@ -2337,7 +2738,7 @@ function filterCards(cat,btn,gridId){
   if(!grid)return;
   grid.querySelectorAll('[data-cat]').forEach(function(card){
     var show=cat==='all'||card.getAttribute('data-cat')===cat;
-    card.style.display=show?'':'none';
+    card.classList.toggle('card-hidden',!show);
   });
 }
 
